@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ES2020"],
+    "module": "CommonJS",
+    "rootDir": "src",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "paths": {
+      "Controllers/*": ["./src/controllers/*"],
+      "Models/*": ["./src/models/*"],
+      "Routes/*": ["./src/routes/*"],
+      "Types/*": ["./src/types/*"],
+      "Utils/*": ["./src/utils/*"],
+    }
+  }
+}
