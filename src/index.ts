@@ -1,13 +1,13 @@
 import cors from 'cors';
 import express from 'express';
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
 import { config as dotenvConfig } from 'dotenv';
 
 import routes from 'Routes/index';
 
 dotenvConfig({ path: '.env' });
 
-const { HOST = 'localhost', PORT = 8080, DB_URL, DB_USER, DB_PASSWORD } = process.env;
+const { HOST = 'localhost', PORT = 8080 } = process.env;
 
 const app = express();
 
@@ -20,12 +20,13 @@ app.use(
 );
 app.use(cors());
 app.use(routes);
+app.listen(Number(PORT), HOST, () => console.log(`server running on host: ${HOST} | port: ${PORT}`));
 
-mongoose
-    .connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_URL}?retryWrites=true&w=majority`)
-    .then(() => {
-        app.listen(PORT, HOST, () => console.log(`server running on host: ${HOST} | port: ${PORT}`));
-    })
-    .catch((error) => {
-        console.error(error.message);
-    });
+// mongoose
+//     .connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_URL}?retryWrites=true&w=majority`)
+//     .then(() => {
+//         app.listen(PORT, HOST, () => console.log(`server running on host: ${HOST} | port: ${PORT}`));
+//     })
+//     .catch((error) => {
+//         console.error(error.message);
+//     });
