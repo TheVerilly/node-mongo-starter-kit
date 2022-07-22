@@ -7,7 +7,10 @@
   "scripts": {
     "start": "npm run build && node dist/index.js",
     "start:dev": "engine-version & nodemon",
-    "build": "engine-version & rimraf dist && tsc && tsc-alias"
+    "build": "engine-version & rimraf dist && tsc && tsc-alias",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint --fix --ext .ts,.tsx ./src",
+    "format": "prettier --write ./src"
   },
   "dependencies": {
     "@types/config": "^0.0.41",
