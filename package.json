@@ -1,7 +1,7 @@
 {
   "name": "node-mongo-starter-kit",
   "version": "1.0.0",
-  "author": "Dmitry Agibalov <TheVerilly@gmail.com> (https://github.com/TheVerilly)",
+  "author": "Dmitry Agibalov (https://github.com/TheVerilly)",
   "engines": {
     "node": ">=16.0.0"
   },
