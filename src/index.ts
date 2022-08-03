@@ -1,6 +1,6 @@
 import cors from 'cors';
 import express from 'express';
-// import mongoose from 'mongoose';
+import mongoose from 'mongoose';
 import { config as dotenvConfig } from 'dotenv';
 
 import routes from 'Routes/index';
@@ -20,13 +20,13 @@ app.use(
 );
 app.use(cors());
 app.use(routes);
-app.listen(Number(PORT), HOST, () => console.log(`server running on host: ${HOST} | port: ${PORT}`));
 
-// mongoose
-//     .connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_URL}?retryWrites=true&w=majority`)
-//     .then(() => {
-//         app.listen(PORT, HOST, () => console.log(`server running on host: ${HOST} | port: ${PORT}`));
-//     })
-//     .catch((error) => {
-//         console.error(error.message);
-//     });
+mongoose
+    .connect('mongodb://mongo:27017', { retryWrites: true })
+    .then(() => {
+        console.log('mongoDB connected');
+        app.listen(8005, '0.0.0.0', () => console.log(`server running on:${HOST}:${PORT}`));
+    })
+    .catch((error) => {
+        console.error(error.message);
+    });
